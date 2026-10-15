@@ -3,7 +3,6 @@ import axios from 'axios';
 import './App.css';
 
 const API_URL = 'https://scarlet-society-backend-3.vercel.app';
-const SEGMENT = 'Holiday Parade 2026';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -40,8 +39,15 @@ function App() {
 
       setPractice(todaysPractice);
 
-      // Get contacts from segment
-      const contactsResponse = await axios.get(`${API_URL}/api/contacts/${SEGMENT}`);
+      // Use the segment set on this practice in the admin app
+      if (!todaysPractice.segment) {
+        setMessage('No segment set for today\'s practice');
+        setLoading(false);
+        return;
+      }
+
+      // Get contacts from the practice's segment
+      const contactsResponse = await axios.get(`${API_URL}/api/contacts/${encodeURIComponent(todaysPractice.segment)}`);
       const sortedContacts = contactsResponse.data.sort((a, b) =>
         (a.lastName || '').localeCompare(b.lastName || '')
       );
