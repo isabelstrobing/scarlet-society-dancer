@@ -122,6 +122,7 @@ function App() {
     return (
       <div className="app">
         <div className="container">
+          <img src="/logo.png" alt="Salem Scarlet Society" className="logo" />
           <h1>Check-in</h1>
           <p className="message-info">{message}</p>
         </div>
@@ -132,6 +133,7 @@ function App() {
   return (
     <div className="app">
       <div className="header">
+        <img src="/logo.png" alt="Salem Scarlet Society" className="logo" />
         <h1>Check-in</h1>
         <p className="practice-info">{practice.name}</p>
         <p className="checked-count">{checkedIn.size} / {contacts.length} checked in</p>
