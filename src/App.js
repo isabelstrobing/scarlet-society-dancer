@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 const API_URL = 'https://scarlet-society-backend-3.vercel.app';
-const SEGMENT = 'holiday_parade_2026';
+const SEGMENT = 'Holiday Parade 2026';
 
 function App() {
   const [contacts, setContacts] = useState([]);
